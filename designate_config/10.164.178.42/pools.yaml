@@ -1,0 +1,61 @@
+---
+- name: default
+  description: Default Pool
+  attributes: {}
+  ns_records:
+    - hostname: ns1.example.org.
+      priority: 1
+    - hostname: ns2.example.org.
+      priority: 2
+  nameservers:
+    - host: 10.164.178.43
+      port: 5322
+    - host: 10.164.178.39
+      port: 5322
+  targets:
+    - type: bind9
+      description: BIND9 Server
+      masters:
+        - host: 10.164.178.42
+          port: 5354
+        - host: 10.164.178.43
+          port: 5354
+
+     # BIND Configuration options
+      options:
+        host: 10.164.178.43
+        port: 53
+        rndc_host: 10.164.178.43
+        rndc_port: 953
+        #rndc_config_file: /etc/bind/rndc.conf
+        rndc_key_file: /etc/designate/rndc.key
+
+    - type: bind9
+      description: BIND9 Server 1
+      masters:
+        - host: 10.164.178.42
+          port: 5354
+        - host: 10.164.178.43
+          port: 5354
+
+     # BIND Configuration options
+      options:
+        host: 10.164.178.39
+        port: 53
+        rndc_host: 10.164.178.39
+        rndc_port: 953
+        #rndc_config_file: /etc/designate/rndc.conf
+        rndc_key_file: /etc/designate/rndc.key
+
+#    - type: powerdns
+#      description: PowerDNS Database Cluster
+#
+#      masters:
+#        - host: 10.164.178.43
+#          port: 5354
+#
+#      options:
+#        host: 10.164.178.42
+#        port: 5322
+#        api_endpoint: http://10.164.178.42:8081
+#        api_token: changeme

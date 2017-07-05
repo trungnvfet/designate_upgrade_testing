@@ -1,0 +1,15 @@
+include "/etc/bind/rndc.key";
+
+options {
+    directory "/var/cache/bind";
+    allow-new-zones yes;
+    dnssec-validation auto;
+    auth-nxdomain no;    # conform to RFC1035
+    listen-on port 5322 { 10.164.178.103; 10.164.178.42; };
+    recursion no;
+    minimal-responses yes;
+};
+
+controls {
+    inet 0.0.0.0 port 953 allow { 10.164.178.103; 10.164.178.42; 10.164.178.43; } keys { "rndc-key"; };
+};
