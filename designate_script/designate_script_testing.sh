@@ -18,7 +18,7 @@ ssh root@10.164.178.43 "bash ~/designate_upgrade.sh" &
 wait
 
 ssh root@10.164.178.39 "service bind9 restart" &
-ssh root@10.164.178.41 "service rabbitmq-server restart" &
+#ssh root@10.164.178.41 "service rabbitmq-server restart" &
 ssh root@10.164.178.43 "service bind9 restart" 
 
 echo "============================== HAS BEEN COMPLETED ==============================="
