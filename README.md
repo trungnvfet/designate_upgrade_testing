@@ -29,4 +29,4 @@ Step 3: Starting upgrade for both designate nodes
 
   ``bash designate_script_testing.sh`` 
 
-Step 4: Drinking a coffee cup with wait until finish.
+Step 4: Drinking a coffee cup and wait until finish.
